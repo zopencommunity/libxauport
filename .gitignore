@@ -4,3 +4,6 @@ log.STABLE/
 build/
 install/
 .zoslib_hooks/
+
+# Ignore source directories created by zopen build
+libXau-1.0.12/
