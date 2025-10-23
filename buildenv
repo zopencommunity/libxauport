@@ -1,5 +1,5 @@
-# bump: libxau-version /LIBXAU_VERSION="(.*)"/ https://www.x.org/archive/individual/lib/libXau-1.0.12.tar.xz|semver:*
-# LIBXAU_VERSION="V.R.M"
+# bump: libxau-version /LIBXAU_VERSION="(.*)"/ https://www.x.org/archive/individual/lib/|re:/href="libXau-([\d.]+).tar.xz"/$1/|semver:*
+LIBXAU_VERSION="1.0.12"
 
 ###
 ### Build control file for the libxau port
@@ -9,7 +9,7 @@
 ### Required Environment Variables
 ###
 export ZOPEN_BUILD_LINE="STABLE"
-export ZOPEN_STABLE_URL="https://www.x.org/archive/individual/lib/libXau-1.0.12.tar.xz"
+export ZOPEN_STABLE_URL="https://www.x.org/archive/individual/lib/libXau-${LIBXAU_VERSION}.tar.xz"
 export ZOPEN_STABLE_DEPS="make pkgconfig util-macros xorgproto"
 export ZOPEN_DEV_URL=""
 export ZOPEN_DEV_DEPS="make pkgconfig util-macros xorgproto"
@@ -42,7 +42,7 @@ zopen_check_results() {
 }
 
 zopen_get_version() {
-  echo "1.0.0" # Modify to echo the version of your tool/library
+  echo "$LIBXAU_VERSION"
 }
 
 
